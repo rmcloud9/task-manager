@@ -16,14 +16,7 @@ in a numbered list.
 python task_manager.py
 ```
 
-## Concepts Practiced
-- Variables, user input, and lists
-- Loops and interactive menus
-- Control flow with conditionals and loops
-- List indexing and tuples
-- Enumeration and f-strings for clean output
-
-## Roadmap
+## Concepts used
 - [x] Basic input and list storage
 - [x] Interactive menu loop
 - [x] Formatted output with enumeration
@@ -36,5 +29,5 @@ python task_manager.py
 - [ ] Web app version
 
 ## Notes
-This is an ongoing learning project — structure and code quality will 
-improve as new concepts are applied.
+The structure and code quality will improve 
+as new concepts are applied.
