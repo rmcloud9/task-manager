@@ -21,7 +21,7 @@ python task_manager.py
 - [x] Interactive menu loop
 - [x] Formatted output with enumeration
 - [x] Persist tasks to a file
-- [ ] Delete/edit tasks
+- [x] Delete/edit tasks
 - [ ] Error handling
 - [ ] Refactor into functions
 - [ ] Task metadata (priority, due date)
