@@ -1,4 +1,4 @@
 study
 exercise
 clean
-playing chess
+go hiking
