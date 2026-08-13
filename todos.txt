@@ -2,3 +2,4 @@ study
 exercise
 clean
 go hiking
+sleep

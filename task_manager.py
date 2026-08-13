@@ -2,8 +2,7 @@ while True:
     user_input = input("Type add / show / edit / complete / exit:")
 
     if 'add' in user_input:
-        todo = input("Enter a new todo:") + "\n"
-        todo = todo[4:]
+        todo = user_input[4:]
 
         with open('todos.txt' ,'r') as file:
             todos = file.readlines()
