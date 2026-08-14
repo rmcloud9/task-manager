@@ -22,7 +22,7 @@ python task_manager.py
 - [x] Formatted output with enumeration
 - [x] Persist tasks to a file
 - [x] Delete/edit tasks
-- [ ] Error handling
+- [x] Error handling
 - [ ] Refactor into functions
 - [ ] Task metadata (priority, due date)
 - [ ] Desktop GUI version
