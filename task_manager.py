@@ -1,18 +1,18 @@
 while True:
     user_input = input("Type add / show / edit / complete / exit:")
 
-    if 'add' in user_input:
+    if user_input.startswith('add'):
         todo = user_input[4:]
 
         with open('todos.txt' ,'r') as file:
             todos = file.readlines()
         
-        todos.append(todo)
+        todos.append(todo + '\n')
 
         with open('todos.txt','w') as file:
             file.writelines(todos)
 
-    elif 'show' in user_input:
+    elif user_input.startswith('show'):
         with open('todos.txt' ,'r') as file:
             todos = file.readlines()
         # todos = [todo.strip('\n') for todo in todos]       
@@ -21,33 +21,45 @@ while True:
             row = f"{index + 1}.{item}"
             print(row)
 
-    elif 'edit' in user_input:
+    elif user_input.startswith('edit'):
+        try:    
+            index = int(user_input[5:])
+
+        except ValueError:
+            print("Invalid input format")
+            continue
+
         with open('todos.txt' ,'r') as file:
             todos = file.readlines()
 
-        index = int(user_input[5:])
+        index = index - 1
         new_todo = input("Enter the modified todo:")
-        todos[index - 1] = new_todo + "\n"
-
+        todos[index] = new_todo + "\n"
+        
         with open('todos.txt', 'w') as file:
             file.writelines(todos)
 
-    elif 'complete' in user_input:
-        index = int(user_input[9:]) - 1
+    elif user_input.startswith('complete'):
+        try:
+            index = int(user_input[9:]) - 1
 
-        with open('todos.txt' ,'r') as file:
-            todos = file.readlines()
+            with open('todos.txt' ,'r') as file:
+                todos = file.readlines()
 
-        todo_to_remove = todos[index].strip('\n')
-        todos.pop(index)
+            todo_to_remove = todos[index].strip('\n')
+            todos.pop(index)
 
-        with open('todos.txt','w') as file:
-            file.writelines(todos)
+            with open('todos.txt','w') as file:
+                file.writelines(todos)
 
-        message = f"Todo {todo_to_remove} has been removed from the list."
-        print(message)
+            message = f"Todo {todo_to_remove} has been removed from the list."
+            print(message)
 
-    elif 'exit' in user_input:
+        except IndexError:
+            print("Index entered does not exist")
+            continue
+
+    elif user_input.startswith('exit'):
         break
 
     else:
