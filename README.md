@@ -23,7 +23,7 @@ python task_manager.py
 - [x] Persist tasks to a file
 - [x] Delete/edit tasks
 - [x] Error handling
-- [ ] Refactor into functions
+- [x] Refactor into functions
 - [ ] Task metadata (priority, due date)
 - [ ] Desktop GUI version
 - [ ] Web app version

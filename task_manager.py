@@ -1,11 +1,16 @@
+def get_todos():
+    with open('todos.txt' ,'r') as file:
+        todos_local = file.readlines()
+    return todos_local
+
+
 while True:
     user_input = input("Type add / show / edit / complete / exit:")
 
     if user_input.startswith('add'):
         todo = user_input[4:]
 
-        with open('todos.txt' ,'r') as file:
-            todos = file.readlines()
+        todos = get_todos()
         
         todos.append(todo + '\n')
 
@@ -13,8 +18,7 @@ while True:
             file.writelines(todos)
 
     elif user_input.startswith('show'):
-        with open('todos.txt' ,'r') as file:
-            todos = file.readlines()
+        todos = get_todos()
         # todos = [todo.strip('\n') for todo in todos]       
         for index, item in enumerate(todos):
             item = item.strip('\n')
@@ -29,8 +33,7 @@ while True:
             print("Invalid input format")
             continue
 
-        with open('todos.txt' ,'r') as file:
-            todos = file.readlines()
+        todos = get_todos()
 
         index = index - 1
         new_todo = input("Enter the modified todo:")
@@ -43,8 +46,7 @@ while True:
         try:
             index = int(user_input[9:]) - 1
 
-            with open('todos.txt' ,'r') as file:
-                todos = file.readlines()
+            todos = get_todos()
 
             todo_to_remove = todos[index].strip('\n')
             todos.pop(index)
@@ -57,6 +59,10 @@ while True:
 
         except IndexError:
             print("Index entered does not exist")
+            continue
+
+        except ValueError:
+            print("Invalid input format")
             continue
 
     elif user_input.startswith('exit'):
